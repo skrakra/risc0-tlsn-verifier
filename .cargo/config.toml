@@ -4,7 +4,7 @@ CFLAGS_riscv32im_risc0_zkvm_elf = "-nostdlibinc -DRING_CORE_NOSTDLIBINC=1 -targe
 RISC0_FEATURE_bigint2 = "1"
 
 [target."riscv32im-risc0-zkvm-elf"]
-linker = "/Users/timwhooks/dev/projects/risc0-tlsn-verifier/riscv32im-linker.sh"
+linker = "/Users/.../risc0-tlsn-verifier/riscv32im-linker.sh"
 rustflags = [
   "--cfg", "getrandom_backend=\"custom\"",
   "-C", "link-arg=-march=rv32im",
