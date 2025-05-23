@@ -1,6 +1,6 @@
 # risc0-tlsn-verifier
 
-Verify TLSNotary proof inside RISC0 zkVM. Example use case: parse a score and verify that it exceeds a specific threshold.
+Verify TLSNotary proof inside RISC0 zkVM. Example use case here: parse a score and verify that it exceeds a specific threshold.
 
 ## Setup
 
@@ -8,7 +8,6 @@ Verify TLSNotary proof inside RISC0 zkVM. Example use case: parse a score and ve
 
    Open `.cargo/config.toml` and modify the `linker` path to the absolute path on your machine:
    ```bash
-   # Example at the top of riscv32im-linker.sh
    RUST_LINKER="/Users/.../risc0-tlsn-verifier/riscv32im-linker.sh"
    ```
 
