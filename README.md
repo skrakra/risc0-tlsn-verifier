@@ -8,7 +8,7 @@ Verify TLSNotary proof inside RISC0 zkVM. Example use case here: parse a score a
 
    Open `.cargo/config.toml` and modify the `linker` path to the absolute path on your machine:
    ```bash
-   RUST_LINKER="/Users/.../risc0-tlsn-verifier/riscv32im-linker.sh"
+    linker="/Users/.../risc0-tlsn-verifier/riscv32im-linker.sh"
    ```
 
    > Note: Relative paths currently are not resolving correctly inside sub-crates,
