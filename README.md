@@ -1,6 +1,6 @@
 # risc0-tlsn-verifier
 
-> Verify TLSNotary proof inside RISC0 zkVM. Example use case: parse a score and verify that it exceeds a specific threshold.
+Verify TLSNotary proof inside RISC0 zkVM. Example use case: parse a score and verify that it exceeds a specific threshold.
 
 ## Setup
 
