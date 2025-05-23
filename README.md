@@ -2,6 +2,10 @@
 
 Verify TLSNotary proof inside RISC0 zkVM. Example use case here: parse a score and verify that it exceeds a specific threshold.
 
+## Prerequisites
+
+You need to install Risc0- and LLVM-toolchain
+
 ## Setup
 
 1. **Adjust linker script path**
@@ -13,7 +17,7 @@ Verify TLSNotary proof inside RISC0 zkVM. Example use case here: parse a score a
 
    > Note: Relative paths currently are not resolving correctly inside sub-crates,
    > so an absolute path is required until a workspace-level fix is implemented.
-
+   
 ## Building
 
 Use Docker to build your guest code with the RISC0 toolchain:
