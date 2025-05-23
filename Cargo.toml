@@ -1,0 +1,18 @@
+[workspace]
+resolver = "2"
+members = [
+    "host",
+    "methods",
+    "methods/guest",
+]
+
+[profile.dev]
+opt-level = 3
+
+[profile.release]
+debug = 1
+lto = true
+
+# Patch ring with a fork that has better RISC-V support
+[patch.crates-io]
+ring = { git = "https://github.com/leso-kn/ring.git", branch = "riscv64-support-plus-riscv32" }
