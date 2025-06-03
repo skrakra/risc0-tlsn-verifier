@@ -4,9 +4,7 @@
 
 ## Setup
 
-**Make the linker script executable**
-
-   From the project root, give the script execute permissions:
+   Make the linker script executable: From the project root, give the script execute permissions:
    ```bash
    chmod +x riscv32im-linker.sh
    ```
