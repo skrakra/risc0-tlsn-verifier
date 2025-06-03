@@ -1,29 +1,28 @@
 # risc0-tlsn-verifier
 
-Verify TLSNotary proof inside RISC0 zkVM. Example use case here: parse a score and verify that it exceeds a specific threshold.
-
-## Prerequisites
-
-You need to install Risc0- and LLVM-toolchain
+> Verify TLSNotary proof inside RISC0 zkVM. Example use case: parse a score and verify that it exceeds a specific threshold.
 
 ## Setup
 
-1. **Adjust linker script path**
+**Make the linker script executable**
 
-   Open `.cargo/config.toml` and modify the `linker` path to the absolute path on your machine:
+   From the project root, give the script execute permissions:
    ```bash
-    linker="/Users/.../risc0-tlsn-verifier/riscv32im-linker.sh"
+   chmod +x riscv32im-linker.sh
+   ```
+   and export an environment variable pointing at your local script, so Cargo/rustc (inside the R0 container) can locate and run it:
+   ```bash
+   export HOST_LINKER="$PWD/riscv32im-linker.sh"
    ```
 
-   > Note: Relative paths currently are not resolving correctly inside sub-crates,
-   > so an absolute path is required until a workspace-level fix is implemented.
-   
 ## Building
 
 Use Docker to build your guest code with the RISC0 toolchain:
 
 ```bash
-RISC0_USE_DOCKER=1 cargo build --workspace --release
+RISC0_USE_DOCKER=1 \
+  CARGO_TARGET_RISCV32IM_RISC0_ZKVM_ELF_LINKER="$HOST_LINKER" \
+  cargo build --workspace --release
 ```
 
 This will compile both the guest (zkVM) and host binaries under `target/release`.
@@ -37,6 +36,4 @@ RISC0_USE_DOCKER=1 \
 RISC0_DEV_MODE=1 \
 cargo run -p host --release -- data/proof.json
 ```
-
-- `-p host` runs the host application.
 - `data/proof.json` path to TLSNotary proof to be verified.
